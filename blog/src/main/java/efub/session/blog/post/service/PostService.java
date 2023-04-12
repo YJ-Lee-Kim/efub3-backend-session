@@ -16,13 +16,14 @@ import java.util.List;
 // repository만 사용
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class PostService {
 
     private final PostRepository postRepository;
     private final AccountRepository accountRepository;  //writer를 Account에서 가져오기 위해
 
-    @Transactional
+    @Transactional  //삭제
     public Post addPost(PostRequestDto requestDto) {
         Account writer = accountRepository.findById(requestDto.getAccountId())
                 .orElseThrow(()-> new IllegalArgumentException("존재하지 않는 계정입니다."));
@@ -39,10 +40,12 @@ public class PostService {
         );
     }
 
+    @Transactional(readOnly = true)
     public List<Post> findPostList() {
         return postRepository.findAll();  //List<Post>를 반환
     }
 
+    @Transactional(readOnly = true)
     public Post findPost(Long postId) {
         return postRepository.findById(postId)
                 .orElseThrow(()->new IllegalArgumentException("존재하지 않는 게시글입니다."));
