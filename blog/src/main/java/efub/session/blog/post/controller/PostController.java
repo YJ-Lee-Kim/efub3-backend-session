@@ -7,7 +7,6 @@ import efub.session.blog.post.dto.PostResponseDto;
 import efub.session.blog.post.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -57,7 +56,7 @@ public class PostController {
     }
 
     // 삭제
-    @DeleteMapping("/{postId}/{accountId}")
+    @DeleteMapping("/{postId}")
     @ResponseStatus(value = HttpStatus.OK)
     public String postRemove(@PathVariable Long postId, @RequestParam Long accountId){
         postService.removePost(postId, accountId);
