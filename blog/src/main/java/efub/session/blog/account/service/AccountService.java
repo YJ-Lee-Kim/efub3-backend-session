@@ -41,7 +41,7 @@ public class AccountService {
         return account.getAccountId();
     }
 
-    @Transactional
+    //클래스에 transactional 선언했으므로 여기서 또 쓸 필요 x
     public void withdraw(Long accountId){
         Account account = findAccountById(accountId);
         account.withdrawAccount();
