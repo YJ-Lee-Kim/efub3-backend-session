@@ -9,8 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 // presentation layer에 해당
@@ -38,13 +38,19 @@ public class PostController {
     public List<PostResponseDto> postListFind(){
         //request body 없음
 
+        /*
         List<Post> postList = postService.findPostList();
         List<PostResponseDto> responseDtoList = new ArrayList<>();
 
         for(Post post : postList){
             responseDtoList.add(new PostResponseDto(post));
-        }   //for문을 stream으로 바꿔보기
+
         return responseDtoList;
+        }*/
+
+        // for문을 stream으로 바꿔보기
+        List<Post> postList = postService.findPostList();
+        return postList.stream().map(PostResponseDto::new).collect(Collectors.toList());
     }
 
     // 개별 조회
@@ -70,5 +76,4 @@ public class PostController {
         Post post = postService.modifyPost(postId, requestDto);
         return new PostResponseDto(post);
     }
-    // 230412 02:56 수정시각이 기록되지 않는 이슈 - 해결하기
 }
