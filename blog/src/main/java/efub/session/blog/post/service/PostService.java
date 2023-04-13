@@ -63,7 +63,7 @@ public class PostService {
         Post post1 = postRepository.findById(postId)
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 게시글입니다."));    // 먼저 postId로 게시글을 찾는다.
 
-        if(post1.getWriter().getAccountId() == accountId)
+        if(post1.getWriter().getAccountId().equals(accountId))
             postRepository.delete(post1);    // 게시글이 존재하고 작성자가 일치하면, 글을 삭제한다.
         else
             throw new IllegalArgumentException("해당 글의 작성자가 아닙니다.");    // 게시글은 존재하나 작성자가 일치하지 않으면, 예외를 발생시킨다.
