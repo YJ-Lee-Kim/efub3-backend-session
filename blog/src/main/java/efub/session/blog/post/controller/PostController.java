@@ -1,9 +1,9 @@
 package efub.session.blog.post.controller;
 
 import efub.session.blog.post.domain.Post;
-import efub.session.blog.post.dto.PostModifyRequestDto;
-import efub.session.blog.post.dto.PostRequestDto;
-import efub.session.blog.post.dto.PostResponseDto;
+import efub.session.blog.post.dto.request.PostModifyRequestDto;
+import efub.session.blog.post.dto.request.PostRequestDto;
+import efub.session.blog.post.dto.response.PostResponseDto;
 import efub.session.blog.post.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

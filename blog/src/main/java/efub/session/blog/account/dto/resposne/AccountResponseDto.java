@@ -1,4 +1,4 @@
-package efub.session.blog.account.dto;
+package efub.session.blog.account.dto.resposne;
 
 import efub.session.blog.account.domain.Account;
 import lombok.AccessLevel;

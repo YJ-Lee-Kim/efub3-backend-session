@@ -1,4 +1,4 @@
-package efub.session.blog.post.dto;
+package efub.session.blog.post.dto.response;
 
 import efub.session.blog.post.domain.Post;
 import lombok.Getter;
@@ -34,5 +34,9 @@ public class PostResponseDto {
         this.content = post.getContent();
         this.createdDate = post.getCreatedDate();
         this.modifiedDate = post.getModifiedDate();
+    }
+
+    public static PostResponseDto from(Post post) {
+        return new PostResponseDto(post);
     }
 }

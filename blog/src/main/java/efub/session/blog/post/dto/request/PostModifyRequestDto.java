@@ -1,4 +1,4 @@
-package efub.session.blog.post.dto;
+package efub.session.blog.post.dto.request;
 
 
 import lombok.Getter;

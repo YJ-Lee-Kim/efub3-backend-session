@@ -1,9 +1,9 @@
 package efub.session.blog.account.controller;
 
 import efub.session.blog.account.domain.Account;
-import efub.session.blog.account.dto.AccountResponseDto;
-import efub.session.blog.account.dto.AccountUpdateRequestDto;
-import efub.session.blog.account.dto.SignUpRequestDto;
+import efub.session.blog.account.dto.resposne.AccountResponseDto;
+import efub.session.blog.account.dto.request.AccountUpdateRequestDto;
+import efub.session.blog.account.dto.request.SignUpRequestDto;
 import efub.session.blog.account.service.AccountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
