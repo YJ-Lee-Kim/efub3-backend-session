@@ -53,4 +53,17 @@ public class CommentService {
         return commentRepository.findAllByPost(post);
     }
 
+    // 댓글 수정
+    public void updateComment(CommentRequestDto requestDto, Long commentId){
+        Comment comment = commentRepository.findById(commentId)
+                .orElseThrow(()->new IllegalArgumentException("존재하지 않는 댓글입니다."));
+        comment.updateComment(requestDto.getContent());
+    }
+
+    // 댓글 삭제
+    public void deleteComment(Long commentId){
+        Comment comment = commentRepository.findById(commentId)
+                .orElseThrow(()->new IllegalArgumentException("존재하지 않는 댓글입니다."));
+        commentRepository.delete(comment);
+    }
 }
