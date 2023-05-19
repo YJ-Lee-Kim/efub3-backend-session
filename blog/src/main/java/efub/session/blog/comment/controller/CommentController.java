@@ -32,6 +32,7 @@ public class CommentController {
 
     // 댓글 삭제
     @DeleteMapping
+    @ResponseStatus(value = HttpStatus.OK)
     public String deleteComment(@PathVariable final Long commentId){
         commentService.deleteComment(commentId);
         return "성공적으로 삭제되었습니다.";
