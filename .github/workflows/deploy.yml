@@ -37,7 +37,7 @@ jobs:
         distribution: 'temurin'
         java-version: '11'
     - name: Grant execute permission for gradlew
-      run: cd blog && chmod +x ./gradlew
+      run: chmod +x ./gradlew
 
     - uses: actions/checkout@v2
     - run: touch ./src/main/resources/application.yml
